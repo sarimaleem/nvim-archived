@@ -17,10 +17,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'arcticicestudio/nord-vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -42,7 +42,7 @@ func! WordProcessor()
   set complete+=s
 endfu
 
-colorscheme gruvbox
+colorscheme nord
 
 set bg=dark
 set go=a
