@@ -21,6 +21,9 @@ Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'sonph/onehalf', {'rtp': 'vim'}
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 call plug#end()
 
@@ -42,7 +45,8 @@ func! WordProcessor()
   set complete+=s
 endfu
 
-colorscheme nord
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
 
 set bg=dark
 set go=a
@@ -72,7 +76,7 @@ map <leader>gf :diffget // 2<CR>
 map <leader>gj :diffget // 3<CR>
 
 
-" Coc
+" Coc settings
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -94,6 +98,9 @@ vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <leader>cr :CocRestart<CR>
 nnoremap <leader>cl :CocList commands<CR>
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Some basics:
 nnoremap c "_c
