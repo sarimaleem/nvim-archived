@@ -11,8 +11,8 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'gruvbox-community/gruvbox'
-Plug 'tpope/vim-commentary'
 Plug 'junegunn/limelight.vim'
+Plug 'preservim/nerdcommenter'
 Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
@@ -45,6 +45,14 @@ func! WordProcessor()
   set complete+=s
 endfu
 
+" comments
+filetype plugin indent on
+autocmd FileType c,java inoreabbrev <buffer> /** /**<CR>/<Up>
+
+" auto-pairs
+let g:AutoPairsFlyMode = 1
+
+" Colorscheme
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
 
@@ -58,12 +66,6 @@ set clipboard=unnamedplus
 set tabstop=4
 set expandtab
 set shiftwidth=4
-
-" You Complete Me
-" let g:ycm_key_list_select_completion=[]
-" let g:ycm_key_list_previous_completion=[]
-" let g:ycm_max_diagnostics_to_display=0
-" let g:ycm_use_clangd = 0
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
@@ -133,7 +135,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Replace all is aliased to S.
-nnoremap S :%s//g<Left><Left>
+nnoremap S :%s//gc<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>cc :w! \| !compiler <c-r>%<CR>
