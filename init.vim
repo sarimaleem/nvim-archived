@@ -1,4 +1,4 @@
-let mapleader = " "
+let mapleader=" "
 
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -12,20 +12,35 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/limelight.vim'
-Plug 'preservim/nerdcommenter'
 Plug 'junegunn/goyo.vim'
-Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+
 call plug#end()
+
+" pdf for latex
+" settings for sumatraPDF
+let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+let g:vimtex_view_general_options
+    \ = '-reuse-instance -forward-search @tex @line @pdf'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 func! WordProcessor()
   " movement changes
@@ -66,9 +81,6 @@ set clipboard=unnamedplus
 set tabstop=4
 set expandtab
 set shiftwidth=4
-
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " map gd :YcmCompleter GoToDefinition<CR>
 
@@ -136,6 +148,7 @@ map <C-l> <C-w>l
 
 " Replace all is aliased to S.
 nnoremap S :%s//gc<Left><Left>
+nnoremap s :s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>cc :w! \| !compiler <c-r>%<CR>
