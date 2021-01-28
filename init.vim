@@ -8,7 +8,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
+
 Plug 'bling/vim-airline'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/limelight.vim'
@@ -16,6 +16,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'arcticicestudio/nord-vim'
+Plug 'preservim/nerdtree'
 Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
@@ -24,14 +25,6 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
 
 call plug#end()
 
@@ -62,6 +55,7 @@ endfu
 
 " comments
 filetype plugin indent on
+filetype plugin on 
 autocmd FileType c,java inoreabbrev <buffer> /** /**<CR>/<Up>
 
 " auto-pairs
@@ -146,6 +140,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" For fuzzy finders and ripgrep
+nmap <C-P> :Rg<CR>
+
 " Replace all is aliased to S.
 nnoremap S :%s//gc<Left><Left>
 nnoremap s :s//g<Left><Left>
@@ -161,7 +158,6 @@ map <leader>cc :w! \| !compiler <c-r>%<CR>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
-map <C-p> "+P
 
 " Goyo
 map <leader>gg :Goyo<CR>
