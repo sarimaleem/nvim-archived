@@ -34,6 +34,9 @@ let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
 let g:vimtex_view_general_options
     \ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 func! WordProcessor()
   " movement changes
@@ -60,6 +63,9 @@ autocmd FileType c,java inoreabbrev <buffer> /** /**<CR>/<Up>
 
 " auto-pairs
 let g:AutoPairsFlyMode = 1
+au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
+
+
 
 " Colorscheme
 colorscheme gruvbox
@@ -107,8 +113,22 @@ nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <leader>cr :CocRestart<CR>
 nnoremap <leader>cl :CocList commands<CR>
 
+" something something documentation?
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+     execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+     call CocActionAsync('doHover')
+    else
+     execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+endfunction
+
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 " Some basics:
 nnoremap c "_c
@@ -157,7 +177,7 @@ map <M-9> :tabn 9<CR>
 nmap <C-P> :Rg<CR>
 
 " Replace all is aliased to S.
-nnoremap S :%s//gc<Left><Left>
+nnoremap S :%s//gc<Left><Left><Left>
 nnoremap s :s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
