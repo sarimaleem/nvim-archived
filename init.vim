@@ -8,7 +8,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
-
 Plug 'bling/vim-airline'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/limelight.vim'
@@ -25,8 +24,11 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-
+Plug 'doums/darcula'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
+
+packadd termdebug
 
 " pdf for latex
 " settings for sumatraPDF
@@ -65,10 +67,8 @@ autocmd FileType c,java inoreabbrev <buffer> /** /**<CR>/<Up>
 let g:AutoPairsFlyMode = 1
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
 
-
-
 " Colorscheme
-colorscheme gruvbox
+colorscheme codedark
 let g:gruvbox_contrast_dark = "hard"
 
 set bg=dark
@@ -129,7 +129,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-
 " Some basics:
 nnoremap c "_c
 set nocompatible
@@ -137,6 +136,16 @@ filetype plugin on
 syntax on
 set encoding=utf-8
 set number relativenumber
+set ignorecase
+set smartcase
+set hidden
+nnoremap <leader>; :Buffers<CR>
+set autochdir
+set hlsearch
+tnoremap <C-\> <C-\><C-n>
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
 
 " Enable autocompletion:
 set wildmode=longest,list,full
@@ -221,3 +230,13 @@ let g:limelight_priority = 10
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+function! BuildComposer(info)
+    if a:info.status != 'unchanged' || a:info.force
+        if has('nvim')
+            !cargo build --release --locked
+        else
+            !cargo build --release --locked --no-default-features --features json-rpc
+        endif
+    endif
+endfunction
