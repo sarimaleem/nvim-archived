@@ -13,3 +13,11 @@ if you clone my repo, you may(?) have to run the following commands
 `sudo apt install silversearcher-ag`
 
 `sudo apt install fd-find`
+
+Also make sure to run 
+
+`:PlugInstall`
+
+`:CocInstall`
+
+obviously
