@@ -139,7 +139,10 @@ set number relativenumber
 set ignorecase
 set smartcase
 set hidden
-nnoremap <leader>; :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>F :Files<CR>
+nnoremap <leader>ta :BTags<CR>
+nmap <leader>/ :Rg<CR>
 set autochdir
 set hlsearch
 tnoremap <C-\> <C-\><C-n>
@@ -182,12 +185,8 @@ map <M-7> :tabn 7<CR>
 map <M-8> :tabn 8<CR>
 map <M-9> :tabn 9<CR>
 
-" For fuzzy finders and ripgrep
-nmap <C-P> :Rg<CR>
-
 " Replace all is aliased to S.
-nnoremap S :%s//gc<Left><Left><Left>
-nnoremap s :s//g<Left><Left>
+nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>cc :w! \| !compiler <c-r>%<CR>
