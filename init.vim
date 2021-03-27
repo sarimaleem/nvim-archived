@@ -173,17 +173,18 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 "Short cut tab navigation
-map <M-h> gT
-map <M-l> gt
-map <M-1> :tabn 1<CR>
-map <M-2> :tabn 2<CR>
-map <M-3> :tabn 3<CR>
-map <M-4> :tabn 4<CR>
-map <M-5> :tabn 5<CR>
-map <M-6> :tabn 6<CR>
-map <M-7> :tabn 7<CR>
-map <M-8> :tabn 8<CR>
-map <M-9> :tabn 9<CR>
+" Should I even have this? It's kind of pointless now that i use buffers basically
+" map <M-h> gT
+" map <M-l> gt
+" map <M-1> :tabn 1<CR>
+" map <M-2> :tabn 2<CR>
+" map <M-3> :tabn 3<CR>
+" map <M-4> :tabn 4<CR>
+" map <M-5> :tabn 5<CR>
+" map <M-6> :tabn 6<CR>
+" map <M-7> :tabn 7<CR>
+" map <M-8> :tabn 8<CR>
+" map <M-9> :tabn 9<CR>
 
 " Replace all is aliased to S.
 nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
