@@ -9,23 +9,28 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
-Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
-Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
 Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
-Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'sonph/onehalf', {'rtp': 'vim'}
+" colorschemes
 Plug 'doums/darcula'
+Plug 'gruvbox-community/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'dunstontc/vim-vscode-theme'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 packadd termdebug
@@ -58,17 +63,22 @@ func! WordProcessor()
   set complete+=s
 endfu
 
+
+" rooter config
+let g:rooter_targets='/,*'
+let g:rooter_patterns=['Cargo.toml', 'Makefile', 'README.md']
+let g:rooter_change_directory_for_non_project_files = 'current'
+
 " comments
 filetype plugin indent on
 filetype plugin on 
-autocmd FileType c,java inoreabbrev <buffer> /** /**<CR>/<Up>
 
 " auto-pairs
 let g:AutoPairsFlyMode = 1
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
 
 " Colorscheme
-colorscheme codedark
+colorscheme darcula
 let g:gruvbox_contrast_dark = "hard"
 
 set bg=dark
@@ -140,14 +150,13 @@ set ignorecase
 set smartcase
 set hidden
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>F :Files<CR>
+nnoremap <leader>fi :Files<CR>
 nnoremap <leader>ta :BTags<CR>
 nmap <leader>/ :Rg<CR>
-set autochdir
+" set autochdir
 set hlsearch
 tnoremap <C-\> <C-\><C-n>
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+nnoremap <F9> :source %<CR>
 
 
 " Enable autocompletion:

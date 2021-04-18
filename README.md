@@ -14,6 +14,8 @@ if you clone my repo, you may(?) have to run the following commands
 
 `sudo apt install fd-find`
 
+`sudo apt install ctags`
+
 Also make sure to run 
 
 `:PlugInstall`
