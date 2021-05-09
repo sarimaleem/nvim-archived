@@ -18,7 +18,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -62,12 +61,6 @@ func! WordProcessor()
   " complete+=s makes autocompletion search the thesaurus
   set complete+=s
 endfu
-
-
-" rooter config
-let g:rooter_targets='/,*'
-let g:rooter_patterns=['Cargo.toml', 'Makefile', 'README.md']
-let g:rooter_change_directory_for_non_project_files = 'current'
 
 " comments
 filetype plugin indent on
@@ -151,7 +144,7 @@ set smartcase
 set hidden
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>fi :Files<CR>
-nnoremap <leader>ta :BTags<CR>
+nnoremap <leader>ta :Tags<CR>
 nmap <leader>/ :Rg<CR>
 " set autochdir
 set hlsearch
