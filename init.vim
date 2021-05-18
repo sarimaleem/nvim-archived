@@ -8,6 +8,7 @@ endif
 
 runtime plugins.vim
 runtime latex.vim
+runtime lsp.vim
 
 packadd termdebug
 
@@ -21,7 +22,7 @@ set smartcase
 set hidden
 set hlsearch
 set splitbelow splitright
-nnoremap <F9> :source %<CR>
+nnoremap <F9> :source $VIMRC<CR>
 nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 tnoremap <C-\> <C-\><C-n>
 
@@ -34,7 +35,7 @@ map <C-l> <C-w>l
 " fzf keybindings
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>fi :Files<CR>
-nnoremap <leader>ta :Tags<CR>
+nnoremap <leader>t :Tags<CR>
 nmap <leader>/ :Rg<CR>
 
 " auto-pairs
@@ -44,17 +45,6 @@ au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
 " Colorscheme stuff
 let g:gruvbox_contrast_dark = "hard"
 colorscheme codedark
-
-" tree sitter stuff
-
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
-}
-EOF
 
 set bg=dark
 set go=a
@@ -66,11 +56,6 @@ set clipboard=unnamedplus
 set tabstop=4
 set expandtab
 set shiftwidth=4
-
-" Vim fugitive
-map <leader>gs :G<CR>
-map <leader>gf :diffget // 2<CR>
-map <leader>gj :diffget // 3<CR>
 
 " Enable autocompletion:
 set wildmode=longest,list,full
