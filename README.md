@@ -1,6 +1,6 @@
 # nvim
 
-my neovim config
+my neovim config (nightly)
 
 if you clone my repo, you may(?) have to run the following commands
 
@@ -20,6 +20,4 @@ Also make sure to run
 
 `:PlugInstall`
 
-`:CocInstall`
-
-obviously
+and install all the language servers
