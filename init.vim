@@ -58,6 +58,7 @@ set expandtab
 set shiftwidth=4
 
 " Enable autocompletion:
+set completeopt=menuone,noselect
 set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
