@@ -32,8 +32,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" easymotion
+map <Leader>se <Plug>(easymotion-s)
+
 " fzf keybindings
-nnoremap <leader>b :Buffers<CR>
+nnorema <leader>b :Buffers<CR>
 nnoremap <leader>fi :Files<CR>
 nnoremap <leader>t :Tags<CR>
 nmap <leader>/ :Rg<CR>
@@ -49,7 +52,6 @@ colorscheme codedark
 set bg=dark
 set go=a
 set mouse=a
-set nohlsearch
 set clipboard=unnamedplus
 
 " Tabs
@@ -60,9 +62,6 @@ set shiftwidth=4
 " Enable autocompletion:
 set completeopt=menuone,noselect
 set wildmode=longest,list,full
-
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
