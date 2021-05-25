@@ -3,11 +3,16 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
 
 " lsp/language stuff
 Plug 'lervag/vimtex'
@@ -16,9 +21,12 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'hrsh7th/nvim-compe'
 
 " colorschemes
+Plug 'Th3Whit3Wolf/space-nvim'
+Plug 'rafamadriz/neon'
 Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
+Plug 'bluz71/vim-nightfly-guicolors'
 
 call plug#end()
