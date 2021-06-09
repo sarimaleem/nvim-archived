@@ -1,5 +1,4 @@
 let mapleader=" "
-
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 echo "Downloading junegunn/vim-plug to manage plugins..."
 silent !mkdir -p ~/.config/nvim/autoload/
@@ -27,24 +26,29 @@ nnoremap <F9> :source $VIMRC<CR>
 nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 tnoremap <C-\> <C-\><C-n>
 
+" Solving a stupid conflict
+
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" easymotion
-map <Leader>se <Plug>(easymotion-s)
-
 " fzf keybindings
-nnorema <leader>b :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>fi :Files<CR>
-nnoremap <leader>t :Tags<CR>
+nnoremap <leader>ta :Tags<CR>
+nnoremap <leader>co :Commands<CR>
 nmap <leader>/ :Rg<CR>
 
 " auto-pairs
 let g:AutoPairsFlyMode = 1
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) 
+
+" vim-sneak
+let g:sneak#label = 1
+map s <Plug>Sneak_s
+map S <Plug>Sneak_S
 
 " Colorscheme stuff
 let g:gruvbox_contrast_dark = "hard"
@@ -94,10 +98,3 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-nmap        s   <Plug>(vsnip-select-text)
-xmap        s   <Plug>(vsnip-select-text)
-nmap        S   <Plug>(vsnip-cut-text)
-xmap        S   <Plug>(vsnip-cut-text)
