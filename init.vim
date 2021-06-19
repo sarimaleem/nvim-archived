@@ -45,10 +45,22 @@ nmap <leader>/ :Rg<CR>
 let g:AutoPairsFlyMode = 1
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) 
 
-" vim-sneak
-let g:sneak#label = 1
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
+" lightspeed nvim
+map s <Plug>Lightspeed_s
+map S <Plug>Lightspeed_S
+" <Plug>Lightspeed_f
+" <Plug>Lightspeed_F
+" <Plug>Lightspeed_t
+" <Plug>Lightspeed_T
+" lua require'lightspeed'.setup {
+"    jump_to_first_match = true,
+"    jump_on_partial_input_safety_timeout = 400,
+"    highlight_unique_chars = false,
+"    grey_out_search_area = true,
+"    match_only_the_start_of_same_char_seqs = true,
+"    limit_ft_matches = 5,
+"    full_inclusive_prefix_key = '<c-x>',
+" }
 
 " Colorscheme stuff
 let g:gruvbox_contrast_dark = "hard"
@@ -84,7 +96,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 vnoremap <C-c> "+y
 
 "vim snippets stuff
-
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
