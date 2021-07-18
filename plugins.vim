@@ -14,9 +14,9 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'kshenoy/vim-signature'
 Plug 'ggandor/lightspeed.nvim'
-Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align'
-
+Plug 'vhdirk/vim-cmake'
+Plug 'folke/which-key.nvim'
 
 " lsp/language stuff
 Plug 'lervag/vimtex'
@@ -33,7 +33,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
-Plug 'bluz71/vim-nightfly-guicoolors'
+Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'junegunn/seoul256.vim'
 Plug 'dracula/vim'
 

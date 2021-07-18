@@ -26,8 +26,6 @@ nnoremap <F9> :source $VIMRC<CR>
 nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 tnoremap <C-\> <C-\><C-n>
 
-" Solving a stupid conflict
-
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -48,19 +46,6 @@ au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'})
 " lightspeed nvim
 map s <Plug>Lightspeed_s
 map S <Plug>Lightspeed_S
-" <Plug>Lightspeed_f
-" <Plug>Lightspeed_F
-" <Plug>Lightspeed_t
-" <Plug>Lightspeed_T
-" lua require'lightspeed'.setup {
-"    jump_to_first_match = true,
-"    jump_on_partial_input_safety_timeout = 400,
-"    highlight_unique_chars = false,
-"    grey_out_search_area = true,
-"    match_only_the_start_of_same_char_seqs = true,
-"    limit_ft_matches = 5,
-"    full_inclusive_prefix_key = '<c-x>',
-" }
 
 " Colorscheme stuff
 let g:gruvbox_contrast_dark = "hard"
@@ -109,3 +94,14 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" vim which key setup
+lua << EOF
+  require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
+set timeoutlen=250
