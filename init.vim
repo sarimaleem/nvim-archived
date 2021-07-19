@@ -8,6 +8,7 @@ endif
 runtime plugins.vim
 runtime latex.vim
 runtime lsp.vim
+runtime autocomplete.vim
 
 packadd termdebug
 
@@ -25,6 +26,9 @@ set termguicolors
 nnoremap <F9> :source $VIMRC<CR>
 nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 tnoremap <C-\> <C-\><C-n>
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+set timeoutlen=250
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
@@ -48,8 +52,10 @@ map s <Plug>Lightspeed_s
 map S <Plug>Lightspeed_S
 
 " Colorscheme stuff
-let g:gruvbox_contrast_dark = "hard"
-colorscheme codedark
+let g:gruvbox_material_background = "hard"
+let g:everforest_background = "hard"
+let g:neon_style="dark"
+colorscheme gruvbox-material
 
 set bg=dark
 set go=a
@@ -80,28 +86,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
 
-"vim snippets stuff
-" Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-" Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
-" vim which key setup
 lua << EOF
-  require("which-key").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+-- vim whick key setup
+require("which-key").setup {
+    }
 EOF
 
-set timeoutlen=250

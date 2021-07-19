@@ -1,6 +1,3 @@
-lua << EOF
---This file takes care of nvim-lsp and LspInstall 
-
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
@@ -122,4 +119,4 @@ require'lspinstall'.post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
-EOF
+
