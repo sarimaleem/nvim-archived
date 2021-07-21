@@ -1,4 +1,5 @@
 " pdf for latex
+"
 " settings for sumatraPDF
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>cc :w! \| !compiler <c-r>%<CR>

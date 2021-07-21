@@ -36,20 +36,21 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" fzf keybindings
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>fi :Files<CR>
-nnoremap <leader>ta :Tags<CR>
-nnoremap <leader>co :Commands<CR>
-nmap <leader>/ :Rg<CR>
+" Telescope keybindings
+nnoremap <leader>fi <cmd>Telescope find_files<cr>
+nnoremap <leader>/ <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ta <cmd>Telescope tags<cr>
+
+" sneak.vim
+let g:sneak#label = 1
+nmap s <Plug>Sneak_s
+nmap S <Plug>Sneak_S
 
 " auto-pairs
 let g:AutoPairsFlyMode = 1
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$' : '$'}) 
-
-" lightspeed nvim
-map s <Plug>Lightspeed_s
-map S <Plug>Lightspeed_S
 
 " Colorscheme stuff
 let g:gruvbox_material_background = "hard"
@@ -91,4 +92,3 @@ lua << EOF
 require("which-key").setup {
     }
 EOF
-

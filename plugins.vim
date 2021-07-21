@@ -6,14 +6,17 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'ggandor/lightspeed.nvim'
+Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-easy-align'
 Plug 'vhdirk/vim-cmake'
 Plug 'folke/which-key.nvim'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " lsp/language stuff
 Plug 'lervag/vimtex'
