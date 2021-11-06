@@ -30,17 +30,19 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
 set timeoutlen=500
 
+
+" fzf
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>h :History<CR>
+nnoremap <leader>/ :Rg<CR>
+
 " Shortcutting split navigation, saving a keypress: map <C-h> <C-w>h
 map <C-j> <C-w>j
+map <C-h> <C-w>h
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" Telescope keybindings
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>/ <cmd>Telescope live_grep<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>ta <cmd>Telescope tags<cr>
 
 " sneak.vim
 let g:sneak#label = 1
@@ -85,9 +87,3 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
-
-lua << EOF
--- vim whick key setup
-require("which-key").setup {
-    }
-EOF

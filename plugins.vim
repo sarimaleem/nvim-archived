@@ -11,13 +11,11 @@ Plug 'kshenoy/vim-signature'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-easy-align'
 Plug 'vhdirk/vim-cmake'
-Plug 'folke/which-key.nvim'
 Plug 'tpope/vim-unimpaired'
 
-" Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " lsp/autocomplete/snippets stuff
 Plug 'lervag/vimtex'
