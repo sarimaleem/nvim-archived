@@ -28,13 +28,12 @@ nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 tnoremap <C-\> <C-\><C-n>
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
-set timeoutlen=500
 
 
 " fzf
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>t :Tags<CR>
+nnoremap <leader>fi :Files<CR>
+nnoremap <leader>ta :Tags<CR>
 nnoremap <leader>h :History<CR>
 nnoremap <leader>/ :Rg<CR>
 
@@ -87,3 +86,21 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
+
+" Terminal commands
+" ueoa is first through fourth finger left hand home row.
+" This just means I can crush, with opposite hand, the 4 terminal positions
+"
+" These functions are stored in harpoon.  A plugin that I am developing
+nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR
+
+nnoremap <leader>1  :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>2  :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>3  :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>4  :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
+nnoremap <leader>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>

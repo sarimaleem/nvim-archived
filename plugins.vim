@@ -13,6 +13,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vhdirk/vim-cmake'
 Plug 'tpope/vim-unimpaired'
 
+" harpoon stuff
+Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
+Plug 'ThePrimeagen/harpoon'
+
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
