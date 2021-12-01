@@ -13,6 +13,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vhdirk/vim-cmake'
 Plug 'tpope/vim-unimpaired'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'junegnn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo'
 
 " harpoon stuff
 Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
