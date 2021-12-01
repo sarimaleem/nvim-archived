@@ -26,9 +26,6 @@ set termguicolors
 nnoremap <F9> :source $VIMRC<CR>
 nnoremap <leader>sr :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 tnoremap <C-\> <C-\><C-n>
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap J :m '>+1<CR>gv=gv
-
 
 " fzf
 nnoremap <leader>b :Buffers<CR>
@@ -94,7 +91,7 @@ vnoremap <C-c> "+y
 " These functions are stored in harpoon.  A plugin that I am developing
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR
+nnoremap <leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
 
 nnoremap <leader>1  :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>2  :lua require("harpoon.ui").nav_file(2)<CR>

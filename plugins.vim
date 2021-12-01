@@ -12,6 +12,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-easy-align'
 Plug 'vhdirk/vim-cmake'
 Plug 'tpope/vim-unimpaired'
+Plug 'simrat39/symbols-outline.nvim'
 
 " harpoon stuff
 Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!

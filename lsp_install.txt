@@ -1,0 +1,7 @@
+c/c++:
+https://clangd.llvm.org/installation.html
+
+python:
+
+clojure:
+https://clojure-lsp.io/installation/
