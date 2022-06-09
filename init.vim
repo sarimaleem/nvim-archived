@@ -60,11 +60,6 @@ set go=a
 set mouse=a
 set clipboard=unnamedplus
 
-"incsearch plugin
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 " Tabs
 set tabstop=4
 set expandtab
