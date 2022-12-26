@@ -1,4 +1,6 @@
-# nvim
+# THIS IS MY OLD CONIGURATION
+
+### nvim
 
 my neovim config (nightly)
 
